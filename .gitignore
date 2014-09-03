@@ -16,4 +16,5 @@
 /tmp
 /vendor/cache
 /.idea
+*.komodoproject
 .directory
