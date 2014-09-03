@@ -23,5 +23,5 @@ Optional
 
 * Änderungen an bestehenden Strings markieren
 * Pluralization: http://guides.rubyonrails.org/i18n.html#pluralization
-* Automatische Übersetzunge mit Bing
+* Automatische Übersetzungen mit Bing
 * Projektverwalter kann Übersetzer auf Sprachen beschränken
