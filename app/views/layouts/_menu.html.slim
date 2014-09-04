@@ -14,3 +14,7 @@ nav.navbar.navbar-default role="navigation"
         li
           a href="#"
             | Link
+      - if user_signed_in?
+       ul.nav.navbar-collapse.navbar-right
+         li
+           = link_to "Abmelden", destroy_user_session_url, method: :delete

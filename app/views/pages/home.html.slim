@@ -1,9 +1,8 @@
 - if user_signed_in?
   p
     /= link_to "Meine Bookmarks", bookmarks_path
-  p
-    = link_to "Abmelden", destroy_user_session_url, method: :delete
 - else
   p
     = link_to "Benutzerkonto erstellen", new_user_registration_path
+  p
     = link_to "Anmelden", new_user_session_path
