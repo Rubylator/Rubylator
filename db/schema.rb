@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140904135906) do
 
-  create_table "languages", force: true do |t|
-    t.string   "locale"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "assignments", force: true do |t|
     t.integer  "user_id"
     t.integer  "role_id"
@@ -28,9 +21,16 @@ ActiveRecord::Schema.define(version: 20140904135906) do
     t.datetime "updated_at"
   end
 
+  add_index "assignments", ["project_id"], name: "index_assignments_on_project_id"
   add_index "assignments", ["role_id"], name: "index_assignments_on_role_id"
   add_index "assignments", ["user_id"], name: "index_assignments_on_user_id"
-  add_index "assignments", ["project_id"], name: "index_assignments_on_project_id"
+
+  create_table "languages", force: true do |t|
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "projects", force: true do |t|
     t.string   "name"
