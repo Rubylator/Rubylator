@@ -15,3 +15,12 @@
  */
 @import "bootstrap";
 @import "bootstrap-sprockets";
+
+.normalbtn {
+  @extend .btn;
+  @extend .btn-default;
+}
+.savebtn {
+  @extend .btn;
+  @extend .btn-primary;
+}

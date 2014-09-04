@@ -20,4 +20,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  general:
+    cancel: Cancel
+    back: Back
+  projects:
+    index:
+      heading: My Projects
+      new: New Project
+      delete: Delete Project
+    edit:
+      heading: Edit Project
+    show:
+      edit: Edit
+      delete: Delete
+    new:
+      heading: New Project

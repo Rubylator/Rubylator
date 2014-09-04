@@ -7,13 +7,11 @@ nav.navbar.navbar-default role="navigation"
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand href=""
-        | Rubylator
+      = link_to 'Rubylator', pages_home_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         li
-          a href="#"
-            | Link
+          =link_to t('projects.index.heading'), projects_path
       - if user_signed_in?
        ul.nav.navbar-collapse.navbar-right
          li

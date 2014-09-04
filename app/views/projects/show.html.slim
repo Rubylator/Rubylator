@@ -1,9 +1,4 @@
-p#notice = notice
+h1 = @project.name
 
-p
-  strong Name:
-  = @project.name
-
-= link_to 'Edit', edit_project_path(@project)
-'|
-= link_to 'Back', projects_path
+= link_to t('.edit'), edit_project_path(@project), class: 'normalbtn'
+= link_to t('.delete'), @project, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'normalbtn'

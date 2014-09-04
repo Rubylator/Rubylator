@@ -9,4 +9,6 @@
   .field
     = f.label :name
     = f.text_field :name
-  .actions = f.submit 'Save'
+  .actions
+    = f.submit 'Save', class: 'savebtn'
+    = link_to (t 'general.back'), projects_path, class: 'normalbtn'
