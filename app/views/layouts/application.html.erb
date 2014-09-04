@@ -8,20 +8,16 @@
 </head>
 <body>
   <div id="header">
-    <h1>Rubylator</h1>
+    <%= render "layouts/menu" %>
   </div>
-  <% if flash[:notice] %>
-    <p id="notice">
-      <%= flash[:notice] %>
-    </p>
-  <% end %>
-  <% if flash[:alert] %>
-    <p id="alert">
-      <%= flash[:alert] %>
-    </p>
-  <% end %>
 
-<%= yield %>
-
+  <div class="container">
+    <div class="row" id="alerts">
+      <%= render "layouts/alerts" %>
+    </div>
+    <div class="row" id="content">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>
