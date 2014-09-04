@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 gem 'rake'
 
 gem 'devise'
+gem 'cancancan', '~> 1.9'
 
 gem 'binding_of_caller'
 
