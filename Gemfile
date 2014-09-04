@@ -35,8 +35,8 @@ gem 'binding_of_caller'
 gem 'better_errors'
 
 gem 'bootstrap-sass', '~> 3.2.0'
-
 gem 'sass-rails', '>= 3.2'
+gem 'bootstrap_form'
 
 gem 'autoprefixer-rails'
 
