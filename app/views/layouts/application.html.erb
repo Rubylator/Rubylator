@@ -7,6 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="header">
+    <h1>Rubylator</h1>
+  </div>
+  <% if flash[:notice] %>
+    <p id="notice">
+      <%= flash[:notice] %>
+    </p>
+  <% end %>
+  <% if flash[:alert] %>
+    <p id="alert">
+      <%= flash[:alert] %>
+    </p>
+  <% end %>
 
 <%= yield %>
 

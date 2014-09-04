@@ -141,6 +141,7 @@ DEPENDENCIES
   less-rails-bootstrap
   rails (= 4.1.5)
   rake
+  ref
   sdoc (~> 0.4.0)
   spring
   sqlite3

@@ -1,2 +1,8 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% if user_signed_in? %>
+  <p><%#= link_to "Meine Bookmarks", bookmarks_path %></p>
+  <p><%= link_to "Abmelden", destroy_user_session_url, method: :delete %></p>
+<% else %>
+  <p><%= link_to "Benutzerkonto erstellen", new_user_registration_path %></p>
+  oder
+  <p><%= link_to "Anmelden", new_user_session_path %></p>
+<% end %>
