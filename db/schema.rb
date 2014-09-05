@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904135906) do
+ActiveRecord::Schema.define(version: 20140905113807) do
 
   create_table "assignments", force: true do |t|
     t.integer  "user_id"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20140904135906) do
   add_index "assignments", ["user_id"], name: "index_assignments_on_user_id"
 
   create_table "languages", force: true do |t|
-    t.string   "locale"
-    t.string   "name"
+    t.string "locale"
+    t.string "name"
   end
 
   create_table "projects", force: true do |t|
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140904135906) do
   end
 
   create_table "roles", force: true do |t|
-    t.string   "name"
+    t.string "name"
   end
 
   create_table "users", force: true do |t|
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140904135906) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
