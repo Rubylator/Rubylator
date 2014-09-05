@@ -168,7 +168,6 @@ Language.create([
 
 Role.delete_all
 Role.create([
-    {id: 1, name: 'administrator'},
-    {id: 2, name: 'projectadmin'},
-    {id: 3, name: 'translator'}
+    {id: Role::PROJECTADMIN, name: 'projectadmin'},
+    {id: Role::TRANSLATOR, name: 'translator'}
 ])

@@ -6,4 +6,14 @@ class User < ActiveRecord::Base
 
   has_many :assignments
   has_many :roles, :through => :assignments
+
+  def can_manage_project(project)
+    canview = false
+    self.assignments.each do |assignment|
+      if assignment.project == project and assignment.role.id == Role::PROJECTADMIN
+        canview = true
+      end
+    end
+    canview
+  end
 end
