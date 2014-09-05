@@ -7,7 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Language.delete_all
-Language.reset_primary_key
 Language.create([
     {id: 1, locale: 'ar', name: 'Arabic'},
     {id: 2, locale: 'ar_AE', name: 'Arabic (United Arab Emirates)'},
@@ -165,4 +164,11 @@ Language.create([
     {id: 154, locale: 'zh_HK', name: 'Chinese (Hong Kong)'},
     {id: 155, locale: 'zh_SG', name: 'Chinese (Singapore)'},
     {id: 156, locale: 'zh_TW', name: 'Chinese (Taiwan)'}
+])
+
+Role.delete_all
+Role.create([
+    {id: 1, name: 'administrator'},
+    {id: 2, name: 'projectadmin'},
+    {id: 3, name: 'translator'}
 ])

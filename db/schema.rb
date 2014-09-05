@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(version: 20140904135906) do
   create_table "languages", force: true do |t|
     t.string   "locale"
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "projects", force: true do |t|
@@ -40,8 +38,6 @@ ActiveRecord::Schema.define(version: 20140904135906) do
 
   create_table "roles", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
