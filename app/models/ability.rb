@@ -4,6 +4,11 @@ class Ability
   def initialize(user)
     user ||= User.new
 
+    if user.is_admin
+      can :manage, :all
+      return
+    end
+
     # Only Project Admins can manage projects
     can :manage, Project do |project|
       user.can_manage_project(project)
