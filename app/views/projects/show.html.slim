@@ -1,4 +1,4 @@
 h1 = @project.name
 
-= link_to t('.edit'), edit_project_path(@project), class: 'normalbtn'
-= link_to t('.delete'), @project, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'normalbtn'
+= link_to_button(@project, :edit)
+= link_to_button(@project, :delete)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904132119) do
+ActiveRecord::Schema.define(version: 20140905120518) do
 
   create_table "languages", force: true do |t|
     t.string   "locale"
