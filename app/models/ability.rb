@@ -13,6 +13,12 @@ class Ability
     can :manage, Project do |project|
       user.can_manage_project(project)
     end
+
+    # Translators can view Projects
+    can :read, Project do |project|
+      user.can_view_project(project)
+    end
+
     # Every user can create a project
     can :create, Project
   end

@@ -9,12 +9,10 @@ class User < ActiveRecord::Base
   has_many :projects, :through => :assignments
 
   def can_manage_project(project)
-    canview = false
-    self.assignments.each do |assignment|
-      if assignment.project == project and assignment.role.id == Role::PROJECTADMIN
-        canview = true
-      end
-    end
-    canview
+    self.assignments.where({role_id: Role::PROJECTADMIN, project: project}).count > 0
+  end
+
+  def can_view_project(project)
+    self.assignments.where({role_id: Role::TRANSLATOR, project: project}).count > 0
   end
 end
