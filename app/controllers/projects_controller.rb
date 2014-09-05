@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
   load_and_authorize_resource
 
 
@@ -25,12 +26,12 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
 
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @project.save
+      @project.add_user(current_user, Role::PROJECTADMIN)
+
+      redirect_to @project, notice: 'Project was successfully created.'
+    else
+      render :new
     end
   end
 
@@ -47,6 +48,7 @@ class ProjectsController < ApplicationController
 
   # DELETE /projects/1
   def destroy
+    @project.remove_role_assignments
     @project.destroy
     respond_to do |format|
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }

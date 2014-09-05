@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :assignments
   has_many :roles, :through => :assignments
+  has_many :projects, :through => :assignments
 
   def can_manage_project(project)
     canview = false
