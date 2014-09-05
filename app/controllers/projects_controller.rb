@@ -37,12 +37,10 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1
   def update
-    respond_to do |format|
-      if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @project.update(project_params)
+      redirect_to @project, notice: 'Project was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -50,9 +48,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.remove_role_assignments
     @project.destroy
-    respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
-    end
+    redirect_to projects_url, notice: 'Project was successfully destroyed.'
   end
 
   private
