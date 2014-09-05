@@ -23,15 +23,15 @@ en:
   general:
     cancel: Cancel
     back: Back
+    delete: Delete
+    new: New
+    edit: Edit
+    save: Save
+    confirm_dialog: Are you sure?
   projects:
     index:
       heading: My Projects
-      new: New Project
-      delete: Delete Project
     edit:
       heading: Edit Project
-    show:
-      edit: Edit
-      delete: Delete
     new:
       heading: New Project
