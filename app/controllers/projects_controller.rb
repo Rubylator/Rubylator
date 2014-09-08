@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:modal_reflang, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
   load_and_authorize_resource
 
@@ -12,22 +12,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   def show
     @roles = Role.get_roles
-  end
-
-  def modal_reflang
-    @project = Project.find(params[:id])
-    respond_to do |format|
-      format.html {render :modal_reflang}
-      format.json {head :ok}
-    end
-  end
-
-  def modal_targetlang
-    @project = Project.find(params[:id])
-    respond_to do |format|
-      format.html {render :modal_targetlang}
-      format.json {head :ok}
-    end
   end
 
   # GET /projects/new
