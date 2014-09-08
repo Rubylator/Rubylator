@@ -1,0 +1,21 @@
+div class="modal-header"
+  button type="button" class="close" data-dismiss="modal" aria-hidden="true" ×
+  h3 id="myModalLabel"
+    = t('projects.show.addcollaborator')
+  div class="modal-body"
+    .form-inline role="form"
+      .form-group
+        .input-group
+          .input-group-addon @
+          input.form-control type="email" placeholder="#{t('projects.show.collabemail')}"
+      .form-group
+        select.form-control
+          - @roles.each do |id, label|
+            option value=id
+              = label
+      button.normalbtn type="submit"
+        = t('general.add')
+    div class="modal-footer"
+      button class="btn" data-dismiss="modal" aria-hidden="true"
+        = t('general.back')
+

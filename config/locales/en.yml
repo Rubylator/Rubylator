@@ -39,7 +39,8 @@ en:
     show:
       addcollaborator: Add collaborator
       collabemail: Enter email
+      ref_lang: Reference language
+      target_lang: Target languages
   role:
     projectadmin: Project Administrator
     translator: Translator
-

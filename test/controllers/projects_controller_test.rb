@@ -25,7 +25,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should show project" do
-    get :show, id: @project
+    get :modal_reflang, id: @project
     assert_response :success
   end
 

@@ -4,5 +4,20 @@ h1 = @project.name
   = link_to_button(edit_project_path(@project), :edit)
 - if can? :destroy, @project
   = link_to_button(@project, :delete)
+br
 - if can? :manage, @project
-  = render 'add_collaborator'
+  = link_to t('.addcollaborator'), project_path(@project), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#addcolaborator', :class => "normalbtn", 'data-type' => "html" }
+  div class="modal fade" id="addcolaborator"
+    div class="modal-dialog"
+      div class="modal-content"
+        = render 'modal_add_collaborator'
+= link_to t('.target_lang'), project_path(@project), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#targetlang', :class => "normalbtn", 'data-type' => "html" }
+div class="modal fade" id="targetlang"
+  div class="modal-dialog"
+    div class="modal-content"
+      = render partial: 'modal_targetlang'
+= link_to t('.ref_lang'), project_path(@project), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#reflang', :class => "normalbtn", 'data-type' => "html" }
+div class="modal fade" id="reflang"
+  div class="modal-dialog"
+    div class="modal-content"
+      = render partial: 'modal_reflang'

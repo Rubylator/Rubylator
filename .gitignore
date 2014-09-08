@@ -19,3 +19,4 @@
 *.komodoproject
 .directory
 Gemfile.lock
+db/schema.rb
