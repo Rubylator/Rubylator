@@ -1,4 +1,6 @@
 h1 = @project.name
 
-= link_to_button(edit_project_path(@project), :edit)
-= link_to_button(@project, :delete)
+- if can? :update, @project
+  = link_to_button(edit_project_path(@project), :edit)
+- if can? :destroy, @project
+  = link_to_button(@project, :delete)
