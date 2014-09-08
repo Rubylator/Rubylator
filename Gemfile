@@ -28,22 +28,23 @@ gem 'spring',        group: :development
 
 gem 'rake'
 
+# Authorization and Rights management
 gem 'devise'
 gem 'cancancan', '~> 1.9'
 
+# Debugging stuff
 gem 'binding_of_caller'
-
 gem 'better_errors'
 
+# Bootstrap, fonts, etc
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '>= 3.2'
 gem 'bootstrap_form'
-
+gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 
+# Template engine
 gem 'slim-rails'
-
-gem 'autoprefixer-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
