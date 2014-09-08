@@ -27,6 +27,7 @@ en:
     new: New
     edit: Edit
     save: Save
+    add: Add
     confirm_dialog: Are you sure?
   projects:
     index:
@@ -35,3 +36,10 @@ en:
       heading: Edit Project
     new:
       heading: New Project
+    show:
+      addcollaborator: Add collaborator
+      collabemail: Enter email
+  role:
+    projectadmin: Project Administrator
+    translator: Translator
+
