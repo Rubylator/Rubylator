@@ -11,13 +11,21 @@ br
     div class="modal-dialog"
       div class="modal-content"
         = render 'modal_add_collaborator'
-= link_to t('.target_lang'), project_path(@project), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#targetlang', :class => "normalbtn", 'data-type' => "html" }
-div class="modal fade" id="targetlang"
-  div class="modal-dialog"
-    div class="modal-content"
-      = render partial: 'modal_targetlang'
-= link_to t('.ref_lang'), project_path(@project), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#reflang', :class => "normalbtn", 'data-type' => "html" }
-div class="modal fade" id="reflang"
-  div class="modal-dialog"
-    div class="modal-content"
-      = render partial: 'modal_reflang'
+  = link_to t('.target_lang'), project_path(@project), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#targetlang', :class => "normalbtn", 'data-type' => "html" }
+  div class="modal fade" id="targetlang"
+    div class="modal-dialog"
+      div class="modal-content"
+        = render partial: 'modal_targetlang'
+  = link_to t('.ref_lang'), project_path(@project), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#reflang', :class => "normalbtn", 'data-type' => "html" }
+  div class="modal fade" id="reflang"
+    div class="modal-dialog"
+      div class="modal-content"
+        = render partial: 'modal_reflang'
+- @languages.each do |language|
+  - if cannot? :read, language
+    - next
+  .media
+    .media-body
+      h3.media-heading
+        a
+          = language.name

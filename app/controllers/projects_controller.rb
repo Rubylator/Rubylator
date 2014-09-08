@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   def show
     @roles = Role.get_roles
+    @languages = Project.find(params[:id]).languages
   end
 
   # GET /projects/new
