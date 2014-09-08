@@ -1,6 +1,8 @@
 h1 = t '.heading'
 
 - @projects.each do |project|
+  - if cannot? :read, project
+    - next
   .media
     .media-body
       h2.media-heading
@@ -8,4 +10,5 @@ h1 = t '.heading'
 
 br
 
-= link_to_button(new_project_path, :new)
+- if can? :create, Project
+  = link_to_button(new_project_path, :new)
