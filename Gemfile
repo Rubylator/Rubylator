@@ -46,6 +46,9 @@ gem 'font-awesome-sass'
 # Template engine
 gem 'slim-rails'
 
+# Tree structure for words
+gem 'ancestry'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
