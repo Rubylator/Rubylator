@@ -13,8 +13,8 @@ class Project < ActiveRecord::Base
     words.where language: language
   end
 
-  def add_user(user, role)
-    self.assignments << Assignment.new(user: user, role_id: role)
+  def add_user(user, role_id)
+    self.assignments << Assignment.new(user: user, role_id: role_id)
   end
 
   def remove_role_assignments

@@ -7,9 +7,18 @@ class Role < ActiveRecord::Base
   TRANSLATOR = 2
 
   def self.get_roles
-    {
-        PROJECTADMIN: I18n.t('role.projectadmin'),
-        TRANSLATOR: I18n.t('role.translator')
-    }
+    [
+        [get_role_name(PROJECTADMIN), PROJECTADMIN],
+        [get_role_name(TRANSLATOR), TRANSLATOR]
+    ]
+  end
+
+  def self.get_role_name role_id
+    case role_id
+      when PROJECTADMIN
+        I18n.t('role.projectadmin')
+      when TRANSLATOR
+        I18n.t('role.translator')
+    end
   end
 end

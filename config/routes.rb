@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   resources :projects do
     member do
       get 'translate/:target_language', :action => 'translate', as: :translate
+      post 'add_collaborator/', :action => 'add_collaborator', as: :add_collaborator
     end
   end
 
   devise_for :users
-  root :to => "pages#home"
+  root :to => 'pages#home'
   get 'pages/home'
 
   resources :words, only: [:update]

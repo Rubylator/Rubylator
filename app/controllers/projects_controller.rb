@@ -58,6 +58,26 @@ class ProjectsController < ApplicationController
     @target_language = Language.find(params[:target_language])
   end
 
+  def add_collaborator
+    user = User.find_by_email(params[:email])
+    unless user
+      redirect_to @project, notice: "Could not find user with email #{params[:email]}"
+      return
+    end
+    if @project.assignments.where({role_id: params[:role_id], user: user}).any?
+      # User already has this role, redirect silently
+      redirect_to @project, notice: "User #{user.email} is already assigned to project #{@project.name}."
+      return
+    end
+
+    # Finally add the user to the project
+    if @project.add_user(user, params[:role_id])
+      redirect_to @project, notice: "User #{user.email} has been added to project #{@project.name}."
+    else
+      redirect_to @project, notice: "Could not add user #{user.email} to project #{@project.name}."
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
