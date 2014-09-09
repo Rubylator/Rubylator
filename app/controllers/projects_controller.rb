@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :translate]
   before_filter :authenticate_user!
   load_and_authorize_resource
 
@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   def show
     @roles = Role.get_roles
-    @languages = Project.find(params[:id]).languages
+    @languages = @project.languages
   end
 
   # GET /projects/new
@@ -51,6 +51,11 @@ class ProjectsController < ApplicationController
     @project.remove_role_assignments
     @project.destroy
     redirect_to projects_url, notice: 'Project was successfully destroyed.'
+  end
+
+  def translate
+    @ref_language = @project.language
+    @target_language = Language.find(params[:target_language])
   end
 
   private

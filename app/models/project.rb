@@ -3,10 +3,14 @@ class Project < ActiveRecord::Base
   has_and_belongs_to_many :languages
   has_many :assignments
   has_many :users, through: :assignments
-  has_many :words, -> { where language_id: self.language_id }
+  has_many :words
+
+  def reference_words
+    get_words language
+  end
 
   def get_words(language)
-    Word.where(where language_id: language.id)
+    words.where language: language
   end
 
   def add_user(user, role)
