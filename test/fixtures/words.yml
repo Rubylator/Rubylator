@@ -3,11 +3,11 @@
 one:
   key: MyString
   text: MyString
-  project_id: 
-  lanugage_id: 
+  project_id:
+  language_id:
 
 two:
   key: MyString
   text: MyString
-  project_id: 
-  lanugage_id: 
+  project_id:
+  language_id:
