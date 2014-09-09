@@ -10,5 +10,5 @@
     = f.label :name
     = f.text_field :name
   .actions
+    = link_to_button(project_path(@project), :back)
     = link_to_button(nil, :save)
-    = link_to_button(projects_path, :back)
