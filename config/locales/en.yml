@@ -44,7 +44,7 @@ en:
       ref_lang: Reference language
       target_lang: Target languages
       completed: Completed
-      translate: Translate
+      translate_bing: Translate using Bing
   role:
     title: Role
     projectadmin: Project Administrator
