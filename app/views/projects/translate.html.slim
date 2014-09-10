@@ -10,15 +10,15 @@ table class="table table-striped table-hover"
 
   /- @project.get_words(@target_language.id).each do |entry|
   - @project.reference_words.each do |word|
-    tr
-      td
-        label class="col-sm-2 control-label"
-          /= entry.reference
-          = word.text
-      - target_word = get_word_safe @project, @target_language, word.key
-      = bootstrap_form_for target_word, remote: true, url: word_path(target_word), method: :patch do |f|
-        td = f.text_field :text, class: 'form-control words_onchange', id: "word_#{target_word.id}", hide_label: true
-        td = link_to t('projects.show.translate_bing'), word_translate_path(target_word), remote: true, class: 'normalbtn translatebtn', id: "btn_#{target_word.id}"
+    - unless word.text == ''
+      tr
         td
-          div.hidden id="loading_#{target_word.id}"
-            = loading_indicator
+          label class="col-sm-2 control-label"
+            = word.text
+        - target_word = get_word_safe @project, @target_language, word.key
+        = bootstrap_form_for target_word, remote: true, url: word_path(target_word), method: :patch do |f|
+          td = f.text_field :text, class: 'form-control words_onchange', id: "word_#{target_word.id}", hide_label: true
+          td = link_to t('projects.show.translate_bing'), word_translate_path(target_word), remote: true, class: 'normalbtn translatebtn', id: "btn_#{target_word.id}"
+          td
+            div.hidden id="loading_#{target_word.id}"
+              = loading_indicator

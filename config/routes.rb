@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'words/update'
 
   resources :projects do
+    post 'import', :action => 'import_yaml'
     member do
       get 'translate/:target_language', :action => 'translate', as: :translate
       get 'show_collaborators', :action => 'show_collaborators', as: :show_collaborators

@@ -1,5 +1,10 @@
 h1 = @project.name
-
+- if can? :manage, @project
+  = link_to raw(icon('upload', t('.import_yaml'))), project_path(@project), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#import_yaml', :class => "normalbtn", 'data-type' => "html" }
+  .modal.fade#import_yaml
+    .modal-dialog
+      .modal-content
+        = render partial: 'modal_import_yaml'
 - if can? :update, @project
   = link_to_button(edit_project_path(@project), :edit)
 - if can? :destroy, @project

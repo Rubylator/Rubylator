@@ -1,3 +1,5 @@
+#require 'yaml'
+
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy, :translate]
   before_filter :authenticate_user!
@@ -54,6 +56,21 @@ class ProjectsController < ApplicationController
   def translate
     @ref_language = @project.language
     @target_language = Language.find(params[:target_language])
+  end
+
+  def import_yaml
+    @project = Project.find(params[:project_id])
+    uploaded_file = params[:file]
+    if uploaded_file.respond_to?(:read)
+      file_content = uploaded_file.read
+    elsif uploaded_file.respond_to?(:path)
+      file_content = File.read(uploaded_file.path)
+    else
+      logger.error "Bad file_data: #{uploaded_file.class.name}: #{uploaded_file.inspect}"
+    end
+    yaml = YAML::load(file_content)
+    ProjectsHelper.import_yaml_hash yaml, @project, ""
+    redirect_to project_path(@project)
   end
 
   def show_collaborators
