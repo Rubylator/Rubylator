@@ -2,7 +2,11 @@ class WordsController < ApplicationController
   def update
     @word = Word.find(params[:id])
     @success = @word.update_attributes(word_params)
-asd
+  end
+
+  def translate
+    @word = Word.find(params[:word_id])
+    @word.translate
   end
 
   private

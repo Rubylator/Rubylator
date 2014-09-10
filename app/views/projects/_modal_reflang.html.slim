@@ -4,7 +4,7 @@ div class="modal-header"
     = t('projects.show.ref_lang')
 div class="modal-body"
   = form_for @project do |f|
-    = f.select(:language_id, Language.all.map {|l| [l.name + " - " + l.locale, l.id]})
+    = f.select(:language_id, Language.all.map {|l| [l.name + " - " + l.locale, l.id]}, {},  class: 'form-control')
     div class="modal-footer"
       button class="btn" data-dismiss="modal" aria-hidden="true"
         = t('general.back')

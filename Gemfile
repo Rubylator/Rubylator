@@ -43,8 +43,11 @@ gem 'sass-rails', '>= 3.2'
 gem 'bootstrap_form'
 gem 'autoprefixer-rails'
 gem 'bootstrap-modal-rails'
+gem 'select2-rails'
 
 gem 'font-awesome-sass'
+
+gem 'bing_translator'
 
 # Template engine
 gem 'slim-rails'
