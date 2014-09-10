@@ -80,6 +80,14 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def remove_collaborator
+    if Assignment.delete(params[:assignment])
+      redirect_to show_collaborators_project_url(@project), notice: 'Assignment has been deleted.'
+    else
+      redirect_to show_collaborators_project_url(@project), notice: 'Assignment could not be deleted.'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project

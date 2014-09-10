@@ -24,6 +24,7 @@ en:
     cancel: Cancel
     back: Back
     delete: Delete
+    remove: Remove
     new: New
     edit: Edit
     save: Save
@@ -37,6 +38,7 @@ en:
     new:
       heading: New Project
     show:
+      managecollaborators: Manage Collaborators
       addcollaborator: Add collaborator
       collabemail: Enter email
       ref_lang: Reference language

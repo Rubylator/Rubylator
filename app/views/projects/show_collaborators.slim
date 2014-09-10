@@ -15,4 +15,4 @@ table.table
     tr
       td = assignment.user.email
       td = Role.get_role_name(assignment.role.id)
-  end
+      td = link_to t('general.remove'), remove_collaborator_project_path(@project, assignment), :method => :delete
