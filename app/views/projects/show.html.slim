@@ -19,7 +19,7 @@ br
         = render partial: 'modal_reflang'
 table class="table table-striped"
   - @languages.each do |language|
-    - if cannot? :read, language
+    - if cannot? :read, @project
       - next
     tr
       td style="width: 1px; white-space: nowrap;"
