@@ -17,4 +17,12 @@ module ApplicationHelper
         link_to raw('Button not defined!'), path, class: 'normalbtn'
     end
   end
+
+  def loading_indicator
+    '<div id="circleG">
+      <div id="circleG_1" class="circleG"></div>
+      <div id="circleG_2" class="circleG"></div>
+      <div id="circleG_3" class="circleG"></div>
+    </div>'.html_safe
+  end
 end
