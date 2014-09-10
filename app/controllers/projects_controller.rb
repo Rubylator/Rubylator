@@ -3,7 +3,6 @@ class ProjectsController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
 
-
   # GET /projects
   def index
     @projects = Project.all
@@ -11,7 +10,6 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
-    @roles = Role.get_roles
     @languages = @project.languages
   end
 
@@ -58,23 +56,27 @@ class ProjectsController < ApplicationController
     @target_language = Language.find(params[:target_language])
   end
 
+  def show_collaborators
+    @roles = Role.get_roles
+  end
+
   def add_collaborator
     user = User.find_by_email(params[:email])
     unless user
-      redirect_to @project, notice: "Could not find user with email #{params[:email]}"
+      redirect_to show_collaborators_project_url(@project), notice: "Could not find user with email #{params[:email]}"
       return
     end
     if @project.assignments.where({role_id: params[:role_id], user: user}).any?
       # User already has this role, redirect silently
-      redirect_to @project, notice: "User #{user.email} is already assigned to project #{@project.name}."
+      redirect_to show_collaborators_project_url(@project), notice: "User #{user.email} is already assigned to project #{@project.name}."
       return
     end
 
     # Finally add the user to the project
     if @project.add_user(user, params[:role_id])
-      redirect_to @project, notice: "User #{user.email} has been added to project #{@project.name}."
+      redirect_to show_collaborators_project_url(@project), notice: "User #{user.email} has been added to project #{@project.name}."
     else
-      redirect_to @project, notice: "Could not add user #{user.email} to project #{@project.name}."
+      redirect_to show_collaborators_project_url(@project), notice: "Could not add user #{user.email} to project #{@project.name}."
     end
   end
 

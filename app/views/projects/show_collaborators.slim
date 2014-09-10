@@ -1,0 +1,18 @@
+h3 = t('projects.show.addcollaborator')
+= form_tag("/projects/#{@project.id}/add_collaborator", method: :post)
+  .form-inline role="form"
+    .form-group
+      .input-group
+        .input-group-addon @
+        input.form-control type="email" placeholder="#{t('projects.show.collabemail')}" name="email"
+    .form-group
+      select.form-control name="role_id"
+        = options_for_select(@roles)
+      = submit_tag(t('general.add'), class: 'savebtn')
+
+table.table
+  - @project.assignments.each do |assignment|
+    tr
+      td = assignment.user.email
+      td = Role.get_role_name(assignment.role.id)
+  end

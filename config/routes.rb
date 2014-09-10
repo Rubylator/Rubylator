@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :projects do
     member do
       get 'translate/:target_language', :action => 'translate', as: :translate
+      get 'show_collaborators', :action => 'show_collaborators', as: :show_collaborators
       post 'add_collaborator/', :action => 'add_collaborator', as: :add_collaborator
     end
   end

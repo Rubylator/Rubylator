@@ -6,11 +6,7 @@ h1 = @project.name
   = link_to_button(@project, :delete)
 br
 - if can? :manage, @project
-  = link_to t('.addcollaborator'), project_path(@project), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#addcolaborator', :class => "normalbtn", 'data-type' => "html" }
-  .modal.fade#addcolaborator
-    .modal-dialog
-      .modal-content
-        = render 'modal_add_collaborator'
+  = link_to t('.addcollaborator'), show_collaborator_project_path(@project)
   = link_to t('.target_lang'), project_path(@project), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#targetlang', :class => "normalbtn", 'data-type' => "html" }
   .modal.fade#targetlang
     .modal-dialog
