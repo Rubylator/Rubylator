@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   root :to => 'pages#home'
   get 'pages/home'
 
-  resources :words, only: [:update]
+  resources :words, only: [:update] do
+    get 'translate', :action => 'translate'
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

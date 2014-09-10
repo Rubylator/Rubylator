@@ -43,6 +43,8 @@ en:
       collabemail: Enter email
       ref_lang: Reference language
       target_lang: Target languages
+      completed: Completed
+      translate: Translate
   role:
     projectadmin: Project Administrator
     translator: Translator
