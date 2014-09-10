@@ -10,9 +10,15 @@ h3 = t('projects.show.addcollaborator')
         = options_for_select(@roles)
       = submit_tag(t('general.add'), class: 'savebtn')
 
-table.table
-  - @project.assignments.each do |assignment|
+table.table.table-striped.table-hover
+  thead
     tr
-      td = assignment.user.email
-      td = Role.get_role_name(assignment.role.id)
-      td = link_to t('general.remove'), remove_collaborator_project_path(@project, assignment), :method => :delete
+      th = t('user.title')
+      th = t('role.title')
+      th
+  tbody
+    - @project.assignments.each do |assignment|
+      tr
+        td = assignment.user.email
+        td = Role.get_role_name(assignment.role.id)
+        td = link_to icon('trash'), remove_collaborator_project_path(@project, assignment), :method => :delete, :title => t('general.remove')
