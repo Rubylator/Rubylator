@@ -50,6 +50,9 @@ en:
       addcollaborator: Add collaborator
       collabemail: Enter email
       ref_lang: Reference language
+      get_started: Get started
+      add_target_lang: Add a language
+      import_words: Import words
       target_lang: Target languages
       import_yaml: Import YAML file
       download_yaml: Download as YAML file

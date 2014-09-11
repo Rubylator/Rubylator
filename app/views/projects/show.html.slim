@@ -1,6 +1,16 @@
 == render partial: 'infobar'
 
-- if can? :read, @project
+- if can? :manage, @project and (@languages.empty? or @project.words.empty?)
+  h3 = t('.get_started')
+  ul
+    - if @project.words.empty?
+      li
+        = link_to t('.import_words'), '', modal_options('#import_yaml')
+    - if @languages.empty?
+      li
+        = link_to t('.add_target_lang'), '', modal_options('#targetlang')
+
+- if can? :read, @project and not @languages.empty?
   table class="table table-striped"
     thead
       tr
