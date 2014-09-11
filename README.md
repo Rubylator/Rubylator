@@ -4,24 +4,24 @@ Rubylator
 Pflicht
 -------
 
-* Ursprungssprache als YAML-Datei hochladen
-* Übersetzungen als YAML-Dateien herunterladen
-* Projekte
-* Neue Sprachen anlegen
-* Strings übersetzen
-  * Filter (übersetzt, nicht übersetzt etc.)
-* Benutzerverwaltung
+* [x] Ursprungssprache als YAML-Datei hochladen
+* [x] Übersetzungen als YAML-Dateien herunterladen
+* [x] Projekte
+* [x] Neue Sprachen anlegen
+* [x] Strings übersetzen
+  * [x] Filter (übersetzt, nicht übersetzt etc.)
+* [x] Benutzerverwaltung
   * Rollen:
-    * Administrator
-    * Projektverwalter
-    * Übersetzer
-* Statistiken zu jeder Sprache anzeigen (Übersetzungsfortschritt)
-* Zusätzliche Anzeige der Referenzstrings in einer anderen Sprache
+    * [x] Administrator
+    * [x] Projektverwalter
+    * [x] Übersetzer
+* [x] Statistiken zu jeder Sprache anzeigen (Übersetzungsfortschritt)
+* [x] Zusätzliche Anzeige der Referenzstrings in einer anderen Sprache
 
 Optional
 --------
 
-* Änderungen an bestehenden Strings markieren
-* Pluralization: http://guides.rubyonrails.org/i18n.html#pluralization
-* Automatische Übersetzungen mit Bing
-* Projektverwalter kann Übersetzer auf Sprachen beschränken
+* [ ] Änderungen an bestehenden Strings markieren
+* [x] Pluralization: http://guides.rubyonrails.org/i18n.html#pluralization
+* [x] Automatische Übersetzungen mit Bing
+* [ ] Projektverwalter kann Übersetzer auf Sprachen beschränken
