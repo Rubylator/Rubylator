@@ -15,5 +15,16 @@ module ProjectsHelper
         ['Show Untranslated', 'untranslated'],
         ['Show Translated', 'translated']
     ]
+
+  def self.language_to_yaml_hash word
+    hash = Hash.new;
+    if word.has_children?
+       word.children.each do |child|
+         hash[child.key.rpartition(':')[2]] = language_to_yaml_hash child
+       end
+      return hash
+    else
+      return word.text
+    end
   end
 end

@@ -19,8 +19,11 @@ class Word < ActiveRecord::Base
     if parent_key == ("")
       Word.create! key: key, text: text, project: project, language: language
     else
-      parent = Word.find_by_key parent_key
-      create_word parent_key, "", project, language if parent.nil?
+      parent = (Word.where ({key: parent_key, language: language})).first
+      if parent.nil?
+        create_word parent_key, "", project, language
+        parent = (Word.where ({key: parent_key, language: language})).first
+      end
       Word.create! key: key, text: text, project: project, language: language, parent: parent
     end
   end

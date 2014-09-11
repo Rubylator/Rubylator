@@ -45,6 +45,7 @@ en:
       ref_lang: Reference language
       target_lang: Target languages
       import_yaml: Import YAML file
+      download_yaml: Download as YAML file
       completed: Completed
       translate_bing: Translate using Bing
     translate:

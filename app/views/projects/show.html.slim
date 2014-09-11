@@ -44,3 +44,5 @@ br
               div class="progress-bar progress-bar-danger progress-bar-striped" aria-valuenow="#{100-percentage}" aria-valuemin="0" aria-valuemax="100" style="width: #{100-percentage}%"
                 span class="sr-only"
                   |#{100-percentage}% Complete (danger)
+          td
+            = link_to t('.download_yaml'), project_export_path(@project, language), class: 'normalbtn'

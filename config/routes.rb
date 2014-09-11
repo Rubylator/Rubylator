@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :projects do
     post 'import', :action => 'import_yaml'
+    get 'export/:language', :action => 'export_yaml', as: :export
     member do
       get 'translate/:target_language', :action => 'translate', as: :translate
       post 'translate/:target_language', :action => 'translate', as: :translate_second_ref

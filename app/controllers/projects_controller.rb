@@ -93,6 +93,15 @@ class ProjectsController < ApplicationController
     redirect_to project_path(@project), notice: "YAML successfully imported!"
   end
 
+  def export_yaml
+    language = Language.find (params[:language])
+    root_word = (Word.find_by_language_id language).root
+    hash = ProjectsHelper.language_to_yaml_hash root_word
+    yaml_hash = Hash.new
+    yaml_hash[language.locale] = hash
+    send_data yaml_hash.to_yaml, filename: language.locale + '.yml'
+  end
+
   def show_collaborators
     @roles = Role.get_roles
   end
