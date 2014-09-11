@@ -37,8 +37,12 @@ en:
       heading: My Projects
     edit:
       heading: Edit Project
+      success: Project was successfully updated.
     new:
       heading: New Project
+      success: Project was successfully created.
+    delete:
+      success: 'Project was successfully deleted.'
     show:
       managecollaborators: Manage Collaborators
       addcollaborator: Add collaborator
@@ -49,11 +53,21 @@ en:
       download_yaml: Download as YAML file
       completed: Completed
       translate_bing: Translate using Bing
+    import:
+      use_yaml: Please use YAML files only!
+      success: YAML file has been imported successfully!
     translate:
       select_ref_lang: Select reference language
       filter_all: Show all
       translated: Show Translated
       untranslated: Show Untranslated
+    collaborator:
+      notfound: Could not find user with email #{params[:email]}
+      assigned: User #{user.email} is already assigned to project #{@project.name}.
+      added: User #{user.email} has been added to project #{@project.name}.
+      notadded: Could not add user #{user.email} to project #{@project.name}.
+      deleted: Assignment has been deleted.
+      notdeleted: Assignment could not be deleted.
   role:
     title: Role
     projectadmin: Project Administrator

@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
     if @project.save
       @project.add_user(current_user, Role::PROJECTADMIN)
 
-      redirect_to @project, notice: 'Project was successfully created.'
+      redirect_to @project, notice: I18n.t('projects.new.success')
     else
       render :new
     end
@@ -40,7 +40,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   def update
     if @project.update(project_params)
-      redirect_to @project, notice: 'Project was successfully updated.'
+      redirect_to @project, notice: I18n.t('projects.edit.success')
     else
       render :edit
     end
@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.remove_role_assignments
     @project.destroy
-    redirect_to projects_url, notice: 'Project was successfully destroyed.'
+    redirect_to projects_url, notice: I18n.t('projects.delete.success')
   end
 
   def translate
@@ -71,7 +71,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:project_id])
     uploaded_file = params[:file]
     if '.yml' != File.extname(uploaded_file.original_filename)
-      redirect_to project_path(@project), alert: 'Please use YAML files only!'
+      redirect_to project_path(@project), alert: I18n.t('projects.import.use_yaml')
       return
     end
     yaml = YAML::load(uploaded_file.read)
@@ -82,7 +82,7 @@ class ProjectsController < ApplicationController
     end
 
     ProjectsHelper.import_yaml_hash yaml, @project, ''
-    redirect_to project_path(@project), notice: "YAML successfully imported!"
+    redirect_to project_path(@project), notice: I18n.t('projects.import.success')
   end
 
   def export_yaml
@@ -101,28 +101,28 @@ class ProjectsController < ApplicationController
   def add_collaborator
     user = User.find_by_email(params[:email])
     unless user
-      redirect_to show_collaborators_project_url(@project), notice: "Could not find user with email #{params[:email]}"
+      redirect_to show_collaborators_project_url(@project), notice: I18n.t('projects.collaborator.notfound')
       return
     end
     if @project.assignments.where({role_id: params[:role_id], user: user}).any?
       # User already has this role, redirect silently
-      redirect_to show_collaborators_project_url(@project), notice: "User #{user.email} is already assigned to project #{@project.name}."
+      redirect_to show_collaborators_project_url(@project), notice: I18n.t('projects.collaborator.assigned')
       return
     end
 
     # Finally add the user to the project
     if @project.add_user(user, params[:role_id])
-      redirect_to show_collaborators_project_url(@project), notice: "User #{user.email} has been added to project #{@project.name}."
+      redirect_to show_collaborators_project_url(@project), notice: I18n.t('projects.collaborator.added')
     else
-      redirect_to show_collaborators_project_url(@project), notice: "Could not add user #{user.email} to project #{@project.name}."
+      redirect_to show_collaborators_project_url(@project), notice: I18n.t('projects.collaborator.notadded')
     end
   end
 
   def remove_collaborator
     if Assignment.delete(params[:assignment])
-      redirect_to show_collaborators_project_url(@project), notice: 'Assignment has been deleted.'
+      redirect_to show_collaborators_project_url(@project), notice: I18n.t('projects.collaborator.deleted')
     else
-      redirect_to show_collaborators_project_url(@project), notice: 'Assignment could not be deleted.'
+      redirect_to show_collaborators_project_url(@project), notice: I18n.t('projects.collaborator.notdeleted')
     end
   end
 
