@@ -24,18 +24,23 @@ br
         = render partial: 'modal_reflang'
 - if can? :read, @project
   table class="table table-striped"
-    - @languages.each do |language|
+    thead
       tr
-        td style="min-width: 30%; white-space: nowrap;"
-          .media
-            .media-body
-              h3.media-heading
-                = link_to language.name, translate_project_path(@project, language)
-        - percentage = @project.get_progress(language)
-        td
-          .progress
-            div class="progress-bar progress-bar-success progress-bar-striped" aria-valuenow="#{percentage}" aria-valuemin="0" aria-valuemax="100" style="width: #{percentage}%; font-weight:bold;"
-              = "#{percentage}% " + t('.completed')
-            div class="progress-bar progress-bar-danger progress-bar-striped" aria-valuenow="#{100-percentage}" aria-valuemin="0" aria-valuemax="100" style="width: #{100-percentage}%"
-              span class="sr-only"
-                |#{100-percentage}% Complete (danger)
+        th
+        th
+    tbody
+      - @languages.each do |language|
+        tr
+          td style="min-width: 30%; white-space: nowrap;"
+            .media
+              .media-body
+                h3.media-heading
+                  = link_to language.name, translate_project_path(@project, language)
+          - percentage = @project.get_progress(language)
+          td
+            .progress
+              div class="progress-bar progress-bar-success progress-bar-striped" aria-valuenow="#{percentage}" aria-valuemin="0" aria-valuemax="100" style="width: #{percentage}%; font-weight:bold;"
+                = "#{percentage}% " + t('.completed')
+              div class="progress-bar progress-bar-danger progress-bar-striped" aria-valuenow="#{100-percentage}" aria-valuemin="0" aria-valuemax="100" style="width: #{100-percentage}%"
+                span class="sr-only"
+                  |#{100-percentage}% Complete (danger)

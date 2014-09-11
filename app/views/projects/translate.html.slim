@@ -1,20 +1,32 @@
-table class="table table-striped table-hover"
+= form_tag(translate_second_ref_project_path)
+  = select_tag('second_ref_language', options_from_collection_for_select(@project.languages, 'id', 'get_full_name',
+          (@second_ref_language.id if @second_ref_language)),
+          prompt: t('projects.show.select_ref_lang'), onchange: 'this.form.submit()')
+table.table.table-striped.table-hover
   thead
     tr
       th
         = @ref_language.name
+        - if @second_ref_language
+          br
+          i
+            = @second_ref_language.name
       th
         = @target_language.name
       th
       th
 
-  /- @project.get_words(@target_language.id).each do |entry|
   - @project.reference_words.each do |word|
-    - unless word.text == ''
-      tr
-        td
-          label class="col-sm-2 control-label"
-            = word.text
+    - if word.text == ''
+      - next
+    tr
+      td
+        b
+          = word.text
+        - if @second_ref_language
+          br
+          i
+            = get_word_safe(@project, @second_ref_language, word.key).text
         - target_word = get_word_safe @project, @target_language, word.key
         = bootstrap_form_for target_word, remote: true, url: word_path(target_word), method: :patch do |f|
           td = f.text_field :text, class: 'form-control words_onchange', id: "word_#{target_word.id}", hide_label: true

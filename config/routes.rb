@@ -5,8 +5,9 @@ Rails.application.routes.draw do
     post 'import', :action => 'import_yaml'
     member do
       get 'translate/:target_language', :action => 'translate', as: :translate
+      post 'translate/:target_language', :action => 'translate', as: :translate_second_ref
       get 'show_collaborators', :action => 'show_collaborators', as: :show_collaborators
-      post 'add_collaborator/', :action => 'add_collaborator', as: :add_collaborator
+      post 'add_collaborator', :action => 'add_collaborator', as: :add_collaborator
       delete 'remove_collaborator/:assignment', :action => 'remove_collaborator', as: :remove_collaborator
     end
   end

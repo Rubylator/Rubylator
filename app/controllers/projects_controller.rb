@@ -56,6 +56,10 @@ class ProjectsController < ApplicationController
   def translate
     @ref_language = @project.language
     @target_language = Language.find(params[:target_language])
+    @second_ref_language = nil
+    if params.has_key?(:second_ref_language) and not params[:second_ref_language].empty?
+      @second_ref_language = Language.find(params[:second_ref_language])
+    end
   end
 
   def import_yaml
