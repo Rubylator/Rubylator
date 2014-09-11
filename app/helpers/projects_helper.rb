@@ -12,8 +12,8 @@ module ProjectsHelper
 
   def filter_options
     [
-        ['Show Untranslated', 'untranslated'],
-        ['Show Translated', 'translated']
+        [t('projects.translate.untranslated'), 'untranslated'],
+        [t('projects.translate.translated'), 'translated']
     ]
   end
 

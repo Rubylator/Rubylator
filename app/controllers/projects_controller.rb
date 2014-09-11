@@ -64,32 +64,24 @@ class ProjectsController < ApplicationController
     @target_words = @project.get_words(@target_language)
     if params.has_key?(:filter) and not params[:filter].empty?
       @filter = params[:filter]
-      # case @filter
-      #   when 'translated'
-      #     @target_words = @project.reference_words.where('text!=""')
-      #   when 'untranslated'
-      #     @target_words = @project.reference_words.where('text==""')
-      # end
     end
   end
 
   def import_yaml
     @project = Project.find(params[:project_id])
     uploaded_file = params[:file]
-    if ".yml" != File.extname(uploaded_file.original_filename)
-      redirect_to project_path(@project), alert: "Please use YAML files only!"
+    if '.yml' != File.extname(uploaded_file.original_filename)
+      redirect_to project_path(@project), alert: 'Please use YAML files only!'
       return
     end
-    #Stackoverflow
-    if uploaded_file.respond_to?(:read)
-      file_content = uploaded_file.read
-    elsif uploaded_file.respond_to?(:path)
-      file_content = File.read(uploaded_file.path)
-    else
-      logger.error "Bad file_data: #{uploaded_file.class.name}: #{uploaded_file.inspect}"
+    yaml = YAML::load(uploaded_file.read)
+
+    # Remove old reference words
+    if params.has_key? :removeold
+      @project.reference_words.delete_all
     end
-    yaml = YAML::load(file_content)
-    ProjectsHelper.import_yaml_hash yaml, @project, ""
+
+    ProjectsHelper.import_yaml_hash yaml, @project, ''
     redirect_to project_path(@project), notice: "YAML successfully imported!"
   end
 

@@ -51,6 +51,8 @@ en:
     translate:
       select_ref_lang: Select reference language
       filter_all: Show all
+      translated: Show Translated
+      untranslated: Show Untranslated
   role:
     title: Role
     projectadmin: Project Administrator
