@@ -23,6 +23,7 @@
         li
           = link_to raw(icon('trash', t('projects.show.delete'))), @project, data: {:confirm => t('projects.show.delete_question')}, :method => :delete
 
+/ Modals made with the help of http://stackoverflow.com/questions/20662793/bootsrap-3-modal-with-rails-4-not-showing/20693907#20693907
 / Modal dialogs
 = render partial: 'modal_import_yaml'
 = render partial: 'modal_targetlang'
