@@ -34,7 +34,7 @@ table.table.table-striped.table-hover
         - if @second_ref_language
           br
           i
-            = get_word_safe(@project, @second_ref_language, word.key).text
+            = WordsHelper.get_word_safe(@project, @second_ref_language, word.key).text
         td
           = bootstrap_form_for target_word, remote: true, url: word_path(target_word), method: :patch do |f|
             = f.text_field :text, class: 'form-control words_onchange', id: "word_#{target_word.id}", hide_label: true
