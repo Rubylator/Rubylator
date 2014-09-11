@@ -5,6 +5,13 @@ class Project < ActiveRecord::Base
   has_many :users, through: :assignments
   has_many :words
 
+  after_initialize :init
+
+  def init
+    # Default language should be English for new projects
+    self.language = Language.find_by_locale('en')
+  end
+
   def reference_words
     get_words language
   end
