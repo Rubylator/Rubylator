@@ -4,22 +4,29 @@
   = select_tag('second_ref_language', options_from_collection_for_select(@project.languages, 'id', 'get_full_name',
           (@second_ref_language.id if @second_ref_language)),
           prompt: t('.select_ref_lang'), onchange: 'this.form.submit()')
+  = select_tag('filter', options_for_select(filter_options, (@filter if @filter)), onchange: 'this.form.submit()',
+          prompt: t('.filter_all'))
 table.table.table-striped.table-hover
   thead
     tr
-      th
+      th.reference
         = @ref_language.name
         - if @second_ref_language
           br
           i
             = @second_ref_language.name
-      th
+      th.target
         = @target_language.name
-      th
-      th
+      th.translate
+      th.loading
 
   - @project.reference_words.each do |word|
-    - if word.text == ''
+    - if word.text.empty?
+      - next
+    - target_word = get_word_safe @project, @target_language, word.key
+    - if @filter == 'translated' and target_word.text.empty?
+      - next
+    - elsif @filter == 'untranslated' and not target_word.text.empty?
       - next
     tr
       td
@@ -29,7 +36,6 @@ table.table.table-striped.table-hover
           br
           i
             = get_word_safe(@project, @second_ref_language, word.key).text
-        - target_word = get_word_safe @project, @target_language, word.key
         td
           = bootstrap_form_for target_word, remote: true, url: word_path(target_word), method: :patch do |f|
             = f.text_field :text, class: 'form-control words_onchange', id: "word_#{target_word.id}", hide_label: true

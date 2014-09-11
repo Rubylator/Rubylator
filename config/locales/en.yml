@@ -49,6 +49,7 @@ en:
       translate_bing: Translate using Bing
     translate:
       select_ref_lang: Select reference language
+      filter_all: Show all
   role:
     title: Role
     projectadmin: Project Administrator

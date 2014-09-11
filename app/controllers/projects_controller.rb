@@ -60,6 +60,17 @@ class ProjectsController < ApplicationController
     if params.has_key?(:second_ref_language) and not params[:second_ref_language].empty?
       @second_ref_language = Language.find(params[:second_ref_language])
     end
+
+    @target_words = @project.get_words(@target_language)
+    if params.has_key?(:filter) and not params[:filter].empty?
+      @filter = params[:filter]
+      # case @filter
+      #   when 'translated'
+      #     @target_words = @project.reference_words.where('text!=""')
+      #   when 'untranslated'
+      #     @target_words = @project.reference_words.where('text==""')
+      # end
+    end
   end
 
   def import_yaml

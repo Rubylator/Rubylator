@@ -9,4 +9,11 @@ module ProjectsHelper
       end
     end
   end
+
+  def filter_options
+    [
+        ['Show Untranslated', 'untranslated'],
+        ['Show Translated', 'translated']
+    ]
+  end
 end
