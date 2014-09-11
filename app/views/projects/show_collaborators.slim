@@ -1,5 +1,5 @@
 h3 = t('projects.show.addcollaborator')
-= form_tag("/projects/#{@project.id}/add_collaborator", method: :post)
+= form_tag(add_collaborator_project_path(@project), method: :post)
   .form-inline role="form"
     .form-group
       .input-group

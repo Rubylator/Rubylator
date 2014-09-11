@@ -25,4 +25,13 @@ module ApplicationHelper
       <div id="circleG_3" class="circleG"></div>
     </div>'.html_safe
   end
+
+  def modal_options modal_div_id
+    {
+        :remote => true,
+        'data-toggle' => 'modal',
+        'data-target' => modal_div_id,
+        'data-type' => 'html'
+    }
+  end
 end

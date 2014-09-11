@@ -55,6 +55,8 @@ en:
       download_yaml: Download as YAML file
       completed: Completed
       translate_bing: Translate using Bing
+      delete: Delete Project
+      edit: Edit Project
     import:
       use_yaml: Please use YAML files only!
       success: YAML file has been imported successfully!

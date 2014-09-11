@@ -1,27 +1,7 @@
-h1 = @project.name
-- if can? :manage, @project
-  = link_to raw(icon('upload', t('.import_yaml'))), project_path(@project), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#import_yaml', :class => "normalbtn", 'data-type' => "html" }
-  .modal.fade#import_yaml
-    .modal-dialog
-      .modal-content
-        = render partial: 'modal_import_yaml'
-- if can? :update, @project
-  = link_to_button(edit_project_path(@project), :edit)
-- if can? :destroy, @project
-  = link_to_button(@project, :delete)
-br
-- if can? :manage, @project
-  = link_to t('.managecollaborators'), show_collaborators_project_path(@project), class: 'normalbtn'
-  = link_to t('.target_lang'), project_path(@project), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#targetlang', :class => "normalbtn", 'data-type' => "html" }
-  .modal.fade#targetlang
-    .modal-dialog
-      .modal-content
-        = render partial: 'modal_targetlang'
-  = link_to t('.ref_lang'), '', {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#reflang', :class => "normalbtn", 'data-type' => "html" }
-  .modal.fade#reflang
-    .modal-dialog
-      .modal-content
-        = render partial: 'modal_reflang'
+h1.projectname = @project.name
+
+= render partial: 'menu'
+
 - if can? :read, @project
   table class="table table-striped"
     thead
@@ -47,3 +27,8 @@ br
                   |#{100-percentage}% Complete (danger)
           td
             = link_to raw(icon('download')), project_export_path(@project, language), class: 'normalbtn', title: t('.download_yaml')
+
+/ Modal dialogs
+= render partial: 'modal_import_yaml'
+= render partial: 'modal_targetlang'
+= render partial: 'modal_reflang'
