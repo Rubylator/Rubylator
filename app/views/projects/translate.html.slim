@@ -1,7 +1,9 @@
+= link_to_button(project_path(@project), :back)
+
 = form_tag(translate_second_ref_project_path)
   = select_tag('second_ref_language', options_from_collection_for_select(@project.languages, 'id', 'get_full_name',
           (@second_ref_language.id if @second_ref_language)),
-          prompt: t('projects.show.select_ref_lang'), onchange: 'this.form.submit()')
+          prompt: t('.select_ref_lang'), onchange: 'this.form.submit()')
 table.table.table-striped.table-hover
   thead
     tr

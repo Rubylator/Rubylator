@@ -47,6 +47,7 @@ en:
       import_yaml: Import YAML file
       completed: Completed
       translate_bing: Translate using Bing
+    translate:
       select_ref_lang: Select reference language
   role:
     title: Role
