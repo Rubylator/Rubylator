@@ -46,6 +46,7 @@ gem 'bootstrap-modal-rails'
 gem 'select2-rails'
 
 gem 'font-awesome-sass'
+gem 'fontawesome-rails-cdn'
 
 gem 'bing_translator'
 
