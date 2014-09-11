@@ -32,6 +32,8 @@ en:
     import: Import
     confirm_dialog: Are you sure?
     logout: Logout
+    login: Login
+    create_account: Create account
   projects:
     index:
       heading: My Projects

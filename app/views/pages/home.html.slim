@@ -1,9 +1,10 @@
-- if user_signed_in?
- .jumbotron
-   h1 RUUUUUUUUUBYLATOR
-   p may contain traces of magic
-- else
-  p
-    = link_to "Benutzerkonto erstellen", new_user_registration_path
-  p
-    = link_to "Anmelden", new_user_session_path
+.jumbotron style="border: solid 2px #00AAFF;"
+  .page-header
+    h1
+      |RUUUUUUUUUBYLATOR
+      br
+      small may contain traces of magic
+- unless user_signed_in?
+  ul class="pager"
+    li = link_to raw(icon('user', t('general.create_account'))), new_user_registration_path
+    li = link_to raw(icon('sign-in', t('general.login'))), new_user_session_path
