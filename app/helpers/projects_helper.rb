@@ -15,6 +15,7 @@ module ProjectsHelper
         ['Show Untranslated', 'untranslated'],
         ['Show Translated', 'translated']
     ]
+  end
 
   def self.language_to_yaml_hash word
     hash = Hash.new;
