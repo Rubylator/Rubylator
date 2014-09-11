@@ -4,7 +4,7 @@ div class="modal-header"
     = t('projects.show.import_yaml')
 div class="modal-body"
   = form_tag project_import_path(@project), remote: true, multipart: true, authenticity_token: true do
-    label for="file" = file_field_tag "file"
+    label for="file" = file_field_tag "file", accept: ".yml"
       |File to upload
     div class="modal-footer"
       button class="btn" data-dismiss="modal" aria-hidden="true"

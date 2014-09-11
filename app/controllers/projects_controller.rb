@@ -65,6 +65,11 @@ class ProjectsController < ApplicationController
   def import_yaml
     @project = Project.find(params[:project_id])
     uploaded_file = params[:file]
+    if ".yml" != File.extname(uploaded_file.original_filename)
+      redirect_to project_path(@project), alert: "Please use YAML files only!"
+      return
+    end
+    #Stackoverflow
     if uploaded_file.respond_to?(:read)
       file_content = uploaded_file.read
     elsif uploaded_file.respond_to?(:path)
@@ -74,7 +79,7 @@ class ProjectsController < ApplicationController
     end
     yaml = YAML::load(file_content)
     ProjectsHelper.import_yaml_hash yaml, @project, ""
-    redirect_to project_path(@project)
+    redirect_to project_path(@project), notice: "YAML successfully imported!"
   end
 
   def show_collaborators

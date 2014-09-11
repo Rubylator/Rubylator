@@ -30,9 +30,10 @@ table.table.table-striped.table-hover
           i
             = get_word_safe(@project, @second_ref_language, word.key).text
         - target_word = get_word_safe @project, @target_language, word.key
-        = bootstrap_form_for target_word, remote: true, url: word_path(target_word), method: :patch do |f|
-          td = f.text_field :text, class: 'form-control words_onchange', id: "word_#{target_word.id}", hide_label: true
-          td = link_to t('projects.show.translate_bing'), word_translate_path(target_word), remote: true, class: 'normalbtn translatebtn', id: "btn_#{target_word.id}"
-          td
-            div.hidden id="loading_#{target_word.id}"
-              = loading_indicator
+        td
+          = bootstrap_form_for target_word, remote: true, url: word_path(target_word), method: :patch do |f|
+            = f.text_field :text, class: 'form-control words_onchange', id: "word_#{target_word.id}", hide_label: true
+        td = link_to t('projects.show.translate_bing'), word_translate_path(target_word), remote: true, class: 'normalbtn translatebtn', id: "btn_#{target_word.id}"
+        td
+          div.hidden id="loading_#{target_word.id}"
+            = loading_indicator
