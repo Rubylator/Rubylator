@@ -18,7 +18,6 @@ table.table.table-striped.table-hover
       th.target
         = @target_language.name
       th.translate
-      th.loading
 
   - @project.reference_words.each do |word|
     - if word.text.empty?
@@ -39,7 +38,4 @@ table.table.table-striped.table-hover
         td
           = bootstrap_form_for target_word, remote: true, url: word_path(target_word), method: :patch do |f|
             = f.text_field :text, class: 'form-control words_onchange', id: "word_#{target_word.id}", hide_label: true
-        td = link_to t('projects.show.translate_bing'), word_translate_path(target_word), remote: true, class: 'normalbtn translatebtn', id: "btn_#{target_word.id}"
-        td
-          div.hidden id="loading_#{target_word.id}"
-            = loading_indicator
+        td = link_to icon('magic'), word_translate_path(target_word), remote: true, class: 'normalbtn translatebtn', id: "btn_#{target_word.id}", title: t('projects.show.translate_bing')

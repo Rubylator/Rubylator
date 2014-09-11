@@ -5,4 +5,5 @@
 jQuery ->
   $('.translatebtn').click ->
     id = this.id.split('_')[1]
-    $('#loading_'+id).removeClass('hidden')
+    tag = $('#btn_'+id).find('i')
+    tag.addClass('fa-spin')
