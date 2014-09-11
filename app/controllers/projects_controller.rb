@@ -48,7 +48,8 @@ class ProjectsController < ApplicationController
 
   # DELETE /projects/1
   def destroy
-    @project.remove_role_assignments
+    @project.assignments.destroy_all
+    @project.words.destroy_all
     @project.destroy
     redirect_to projects_url, notice: I18n.t('projects.delete.success')
   end
