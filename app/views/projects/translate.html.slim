@@ -1,11 +1,11 @@
 == render partial: 'infobar'
 
-= form_tag(translate_second_ref_project_path)
+= form_tag(translate_second_ref_project_path, class: 'form-inline')
   = select_tag('second_ref_language', options_from_collection_for_select(@project.languages, 'id', 'get_full_name',
           (@second_ref_language.id if @second_ref_language)),
-          prompt: t('.select_ref_lang'), onchange: 'this.form.submit()')
+          prompt: t('.select_ref_lang'), onchange: 'this.form.submit()', class: 'form-control')
   = select_tag('filter', options_for_select(filter_options, (@filter if @filter)), onchange: 'this.form.submit()',
-          prompt: t('.filter_all'))
+          prompt: t('.filter_all'), class: 'form-control')
 table.table.table-striped.table-hover
   thead
     tr

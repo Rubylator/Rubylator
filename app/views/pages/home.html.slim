@@ -1,9 +1,9 @@
 .jumbotron style="border: solid 2px #00AAFF;"
   .page-header
     h1
-      |RUUUUUUUUUBYLATOR
+      |Rubylator
       br
-      small may contain traces of magic
+      small = t('.subtitle')
 - unless user_signed_in?
   ul class="pager"
     li = link_to raw(icon('user', t('general.create_account'))), new_user_registration_path
