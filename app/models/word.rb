@@ -15,6 +15,12 @@ class Word < ActiveRecord::Base
   end
 
   def self.create_word key, text, project, language
+    word = (Word.where ({key: key, language: language})).first
+    unless word.nil?
+      word.text = text
+      word.save
+      return word
+    end
     parent_key = key.rpartition(':')[0]
     if parent_key == ("")
       Word.create! key: key, text: text, project: project, language: language

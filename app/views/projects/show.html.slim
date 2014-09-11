@@ -26,8 +26,9 @@ br
   table class="table table-striped"
     thead
       tr
-        th
-        th
+        th.project
+        th.progressbar
+        th.download
     tbody
       - @languages.each do |language|
         tr
@@ -45,4 +46,4 @@ br
                 span class="sr-only"
                   |#{100-percentage}% Complete (danger)
           td
-            = link_to t('.download_yaml'), project_export_path(@project, language), class: 'normalbtn'
+            = link_to raw(icon('download')), project_export_path(@project, language), class: 'normalbtn', title: t('.download_yaml')

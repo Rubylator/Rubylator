@@ -1,18 +1,18 @@
 nav.navbar.navbar-default role="navigation"
   .container
     .navbar-header
-      button.navbar-toggle.collapsed data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" type="button"
+      button.navbar-toggle.collapsed data-toggle="collapse" data-target="#navbar-collapse" type="button"
         span.sr-only
           Toggle Navigation
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to 'Rubylator', pages_home_path, class: 'navbar-brand'
-    .collapse.navbar-collapse
+      = link_to raw(icon('magic', 'Rubylator')), pages_home_path, class: 'navbar-brand'
+    .collapse.navbar-collapse#navbar-collapse
       ul.nav.navbar-nav
         li
-          =link_to t('projects.index.heading'), projects_path
+          =link_to raw(icon('folder', t('projects.index.heading'))), projects_path
       - if user_signed_in?
-       ul.nav.navbar-collapse.navbar-right
+       ul.nav.navbar-nav.navbar-right
          li
-           = link_to "Abmelden", destroy_user_session_url, method: :delete
+           = link_to raw(icon('power-off', t('general.logout'))), destroy_user_session_url, method: :delete
