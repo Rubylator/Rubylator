@@ -61,6 +61,7 @@ en:
       delete: Delete Project
       delete_question: Are you sure you want to delete this project? This will also delete all stored words.
       edit: Edit Project
+      remove_old: Remove old reference words
     import:
       use_yaml: Please use YAML files only!
       success: YAML file has been imported successfully!
