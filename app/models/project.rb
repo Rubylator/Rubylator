@@ -14,13 +14,14 @@ class Project < ActiveRecord::Base
   end
 
   def get_progress(language)
+    allwords = get_words(self.language)
     unfinished_words = 0
     words = get_words(language)
     words.each do |word|
-      unfinished_words += 1 if(word.text=="")
+      unfinished_words += 1 if(word.text.empty?)
     end
-    return 0 if words.length == 0
-    100-(unfinished_words/(words.length/100.0)).round
+    return 100 if allwords.length == 0
+    100-(unfinished_words/(allwords.length/100.0)).round
   end
 
   def add_user(user, role)
