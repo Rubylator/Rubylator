@@ -105,7 +105,7 @@ class ProjectsController < ApplicationController
       return
     end
     if @project.assignments.where({role_id: params[:role_id], user: user}).any?
-      # User already has this role, redirect silently
+      # User already has this role
       redirect_to show_collaborators_project_url(@project), notice: I18n.t('projects.collaborator.assigned')
       return
     end

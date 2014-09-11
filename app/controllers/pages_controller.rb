@@ -1,8 +1,7 @@
 class PagesController < ApplicationController
   def home
-  end
-
-  def test
-
+    if user_signed_in?
+      redirect_to projects_path
+    end
   end
 end

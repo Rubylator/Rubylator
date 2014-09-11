@@ -22,12 +22,12 @@ class Word < ActiveRecord::Base
       return word
     end
     parent_key = key.rpartition(':')[0]
-    if parent_key == ("")
+    if parent_key.empty?
       Word.create! key: key, text: text, project: project, language: language
     else
       parent = (Word.where ({key: parent_key, language: language})).first
       if parent.nil?
-        create_word parent_key, "", project, language
+        create_word parent_key, '', project, language
         parent = (Word.where ({key: parent_key, language: language})).first
       end
       Word.create! key: key, text: text, project: project, language: language, parent: parent
