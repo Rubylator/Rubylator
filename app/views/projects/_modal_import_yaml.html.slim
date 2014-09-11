@@ -6,10 +6,11 @@
         h3 id="myModalLabel"
           = t('projects.show.import_yaml')
       div class="modal-body"
-        = form_tag project_import_path(@project), remote: true, multipart: true, authenticity_token: true do
-          label for='removeold'
-            = check_box_tag('removeold', '1', false)
-            = t('projects.show.remove_old')
+        = form_tag project_import_path(@project), remote: true, accept: ".yml" , authenticity_token: true do
+          .checkbox
+            label for='removeold'
+              = check_box_tag('removeold', '1', false)
+              = t('projects.show.remove_old')
           = file_field_tag 'file', accept: '.yml'
           div class="modal-footer"
             button class="btn" data-dismiss="modal" aria-hidden="true"
