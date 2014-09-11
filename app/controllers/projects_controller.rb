@@ -87,6 +87,10 @@ class ProjectsController < ApplicationController
 
   def export_yaml
     language = Language.find (params[:language])
+    project = Project.find(params[:project_id])
+    project.reference_words.each do |word|
+      WordsHelper.get_word_safe project, language, word.key
+    end
     root_word = (Word.find_by_language_id language).root
     hash = ProjectsHelper.language_to_yaml_hash root_word
     yaml_hash = Hash.new

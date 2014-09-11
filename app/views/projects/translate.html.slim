@@ -22,7 +22,7 @@ table.table.table-striped.table-hover
   - @project.reference_words.each do |word|
     - if word.text.empty?
       - next
-    - target_word = get_word_safe @project, @target_language, word.key
+    - target_word = WordsHelper.get_word_safe @project, @target_language, word.key
     - if @filter == 'translated' and target_word.text.empty?
       - next
     - elsif @filter == 'untranslated' and not target_word.text.empty?
