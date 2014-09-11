@@ -71,10 +71,10 @@ en:
       translated: Show Translated
       untranslated: Show Untranslated
     collaborator:
-      notfound: Could not find user with email #{params[:email]}
-      assigned: User #{user.email} is already assigned to project #{@project.name}.
-      added: User #{user.email} has been added to project #{@project.name}.
-      notadded: Could not add user #{user.email} to project #{@project.name}.
+      notfound: Could not find user with email %{email}
+      assigned: User %{email} is already assigned to project %{project}.
+      added: User %{email} has been added to project %{project}.
+      notadded: Could not add user %{email} to project %{project}.
       deleted: Assignment has been deleted.
       notdeleted: Assignment could not be deleted.
   role:

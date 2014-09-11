@@ -106,20 +106,20 @@ class ProjectsController < ApplicationController
   def add_collaborator
     user = User.find_by_email(params[:email])
     unless user
-      redirect_to show_collaborators_project_url(@project), notice: I18n.t('projects.collaborator.notfound')
+      redirect_to show_collaborators_project_url(@project), notice: I18n.t('projects.collaborator.notfound', email: params[:email])
       return
     end
     if @project.assignments.where({role_id: params[:role_id], user: user}).any?
       # User already has this role
-      redirect_to show_collaborators_project_url(@project), notice: I18n.t('projects.collaborator.assigned')
+      redirect_to show_collaborators_project_url(@project), notice: I18n.t('projects.collaborator.assigned', email: params[:email], project: @project.name)
       return
     end
 
     # Finally add the user to the project
     if @project.add_user(user, params[:role_id])
-      redirect_to show_collaborators_project_url(@project), notice: I18n.t('projects.collaborator.added')
+      redirect_to show_collaborators_project_url(@project), notice: I18n.t('projects.collaborator.added', email: params[:email], project: @project.name)
     else
-      redirect_to show_collaborators_project_url(@project), notice: I18n.t('projects.collaborator.notadded')
+      redirect_to show_collaborators_project_url(@project), notice: I18n.t('projects.collaborator.notadded', email: params[:email], project: @project.name)
     end
   end
 
