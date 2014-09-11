@@ -21,7 +21,7 @@
         li
           = link_to raw(icon('pencil-square-o', t('projects.show.edit'))), edit_project_path(@project)
         li
-          = link_to raw(icon('trash', t('projects.show.delete'))), @project, data: {:confirm => t('projects.show.delete_quxestion')}, :method => :delete
+          = link_to raw(icon('trash', t('projects.show.delete'))), @project, data: {:confirm => t('projects.show.delete_question')}, :method => :delete
 
 / Modal dialogs
 = render partial: 'modal_import_yaml'
