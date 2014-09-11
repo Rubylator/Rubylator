@@ -1,6 +1,4 @@
-h1.projectname = @project.name
-
-= render partial: 'menu'
+== render partial: 'infobar'
 
 - if can? :read, @project
   table class="table table-striped"
@@ -27,8 +25,3 @@ h1.projectname = @project.name
                   |#{100-percentage}% Complete (danger)
           td
             = link_to raw(icon('download')), project_export_path(@project, language), class: 'normalbtn', title: t('.download_yaml')
-
-/ Modal dialogs
-= render partial: 'modal_import_yaml'
-= render partial: 'modal_targetlang'
-= render partial: 'modal_reflang'

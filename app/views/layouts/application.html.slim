@@ -11,5 +11,7 @@ html
     .container
       #alerts.row
         = render "layouts/alerts"
+      #infobar.row
+        == yield :infobar
       #content.row
         == yield

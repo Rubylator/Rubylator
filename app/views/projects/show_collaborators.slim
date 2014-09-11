@@ -1,4 +1,6 @@
-h3 = t('projects.show.addcollaborator')
+== render partial: 'infobar'
+
+h2 = t('projects.show.addcollaborator')
 = form_tag(add_collaborator_project_path(@project), method: :post)
   .form-inline role="form"
     .form-group
