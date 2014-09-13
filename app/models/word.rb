@@ -15,7 +15,7 @@ class Word < ActiveRecord::Base
   end
 
   def self.create_word key, text, project, language
-    word = (Word.where ({key: key, language: language})).first
+    word = (Word.where ({key: key, project: project, language: language})).first
     unless word.nil?
       word.text = text
       word.save
