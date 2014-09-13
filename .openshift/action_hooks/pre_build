@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd $OPENSHIFT_REPO_DIR
+
+# Use OpenShift database config
+cp config/database.yml.openshift.example config/database.yml
+
+# db migration
+# bundle exec rake db:migrate
