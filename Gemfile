@@ -37,7 +37,7 @@ gem 'bootstrap_form'
 gem 'autoprefixer-rails'
 gem 'bootstrap-modal-rails'
 gem 'select2-rails'
-gem 'font-awesome-sass'
+gem 'font-awesome-rails'
 
 gem 'bing_translator'
 

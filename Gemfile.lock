@@ -70,8 +70,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.2.1)
-    font-awesome-sass (4.2.0)
-      sass (~> 3.2)
+    font-awesome-rails (4.2.0.0)
+      railties (>= 3.2, < 5.0)
     gyoku (1.1.1)
       builder (>= 2.1.2)
     hike (1.2.3)
@@ -203,7 +203,7 @@ DEPENDENCIES
   cancancan (~> 1.9)
   coffee-rails (~> 4.0.0)
   devise
-  font-awesome-sass
+  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
