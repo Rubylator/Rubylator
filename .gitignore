@@ -20,3 +20,5 @@
 .directory
 db/schema.rb
 /public
+# Don't include the database config to allow custom configuration
+/config/database.yml
