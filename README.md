@@ -11,3 +11,10 @@ Its features include:
 * User Management
   * Roles: Project Admin, Translator
 * Machine Translation (using Bing)
+
+Get started
+-----------
+
+* Clone this repository
+* Copy `config/database.yml.example` to `config/database.yml`
+* If you want to use Bing translation, you need to get an API key and enter it in `config/initializers/bing_translator.rb`
