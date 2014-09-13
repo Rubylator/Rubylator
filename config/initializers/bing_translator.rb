@@ -1,1 +1,5 @@
-Rails.application.config.bing_translator = BingTranslator.new('RubylatorTHM', 'gCNnC8Wy2spntMVpq40dUftG+NRkDwnV246DE9XuZnk=', true, nil)
+# To enable Bing translation, set `bing_available` to true and enter your bing credentials
+# (replace `app_name` and `token`)
+
+Rails.application.config.bing_available = false
+Rails.application.config.bing_translator = BingTranslator.new('app_name', 'token', true, nil)

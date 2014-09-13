@@ -1,4 +1,6 @@
 class WordsController < ApplicationController
+  load_and_authorize_resource
+
   def update
     @word = Word.find(params[:id])
     @success = @word.update_attributes(word_params)

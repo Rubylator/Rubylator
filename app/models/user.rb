@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
   def can_view_project(project)
     self.assignments.where({role_id: Role::TRANSLATOR, project: project}).count > 0
   end
+
+  def can_update_word(word)
+    word.project.assignments.where(user: self).count > 0
+  end
 end

@@ -18,8 +18,16 @@ class Ability
     can :read, Project do |project|
       user.can_view_project(project)
     end
-    can :translate  , Project do |project|
+    can :translate, Project do |project|
       user.can_view_project(project)
+    end
+
+    can :update, Word do |word|
+      user.can_update_word(word)
+    end
+
+    if Rails.application.config.bing_available
+      can :translate, Word
     end
 
     # Every user can create a project
