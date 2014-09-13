@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -32,11 +30,6 @@ gem 'rake'
 gem 'devise'
 gem 'cancancan', '~> 1.9'
 
-# Debugging stuff
-gem 'binding_of_caller'
-gem 'better_errors'
-gem 'quiet_assets'
-
 # Bootstrap, fonts, etc
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '>= 3.2'
@@ -44,7 +37,6 @@ gem 'bootstrap_form'
 gem 'autoprefixer-rails'
 gem 'bootstrap-modal-rails'
 gem 'select2-rails'
-
 gem 'font-awesome-sass'
 
 gem 'bing_translator'
@@ -55,16 +47,17 @@ gem 'slim-rails'
 # Tree structure for words
 gem 'ancestry'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
 gem 'tzinfo-data'
+
+group :development do
+  gem 'sqlite3'
+
+  # Debugging stuff
+  gem 'binding_of_caller'
+  gem 'better_errors'
+  gem 'quiet_assets'
+end
+
+group :production do
+  gem 'mysql2'
+end
